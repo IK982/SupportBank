@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace Support_Bank
 {
@@ -6,7 +7,12 @@ namespace Support_Bank
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var content = File.ReadLines("Transactions2014.csv");
+
+
+
+
+
         }
     }
 }

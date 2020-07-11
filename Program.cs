@@ -7,7 +7,8 @@ namespace Support_Bank
     {
         static void Main(string[] args)
         {
-            var content = File.ReadLines("Transactions2014.csv");
+            var transactions = FileReader.ReadTransactionsFromFile();
+            Console.WriteLine(transactions);
 
 
 

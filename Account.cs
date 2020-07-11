@@ -11,31 +11,76 @@
 
 
 using System;
-
+using System.Collections.Generic;
 namespace Support_Bank {
 
-    public class Account {
-
+    public class Account 
+    {
         public string name;
-        public int owe;
-        public int owed;
+        public List<Transaction> incomingTransactions;
+        public List<Transaction> outgoingTransactions;
 
-        public void accountinfo()
+        public Account(string name)
         {
-        
-            Console.WriteLine("Account Name: " + name + " owes " + owe + " and is owed " + owed);
+            // the constructor asks us to supply a name when we create the account.
+            // it then sets the name 
+            // and initialises the incoming and outgoing transactions as an empty list.
+            this.name = name;
+            incomingTransactions = new List<Transaction>();
+            outgoingTransactions = new List<Transaction>();
 
-            // Account account = new Account(); 
-            // Account.name line.from;
-
-            //if(name = already an account name) {just add [4]} else add name to account
         }
 
+        public decimal GetTotalIncoming()
+        {
+            // Loops through all of the incoming transactions,
+            // and adds up the total value of the incoming transactions.
+            var total = new decimal(0);
 
+            foreach (var transaction in incomingTransactions)
+            {
+                total = total + transaction.amount;
+            }
 
+            return total;
+        }
+
+        public decimal GetTotalOutgoing()
+        {
+            // Loops through all of the utgoing transactions,
+            // and adds up the total value of the outgoing transactions.
+            var total = new decimal(0);
+
+            foreach (var transaction in outgoingTransactions)
+            {
+                total = total + transaction.amount;
+            }
+
+            return total;
+        }
+
+        public decimal GetTotalToPay()
+        {
+            // Get the total amount that the person needs to pay.
+            // which is just all the money that they owe to other, minus all the money owed to them.
+            return GetTotalOutgoing() - GetTotalIncoming();
+        }
+    
+        }
         
     }
 
 
 
-}
+
+        // public string name;
+        // public int owe;
+        // public int owed;
+
+        // public void accountinfo()
+            //Console.WriteLine("Account Name: " + name + " owes " + owe + " and is owed " + owed);
+
+            // Account account = new Account(); 
+            // Account.name line.from;
+
+            //if(name = already an account name) {just add [4]} else add name to account

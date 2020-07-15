@@ -6,4 +6,8 @@
     <RootNamespace>Support_Bank</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NLog" Version="4.7.2" />
+  </ItemGroup>
+
 </Project>
